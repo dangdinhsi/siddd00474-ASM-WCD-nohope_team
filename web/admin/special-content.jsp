@@ -88,7 +88,7 @@
             "descriptionSelector": $('input[name="descriptionSelector"]').val(),
             "contentSelector": $('input[name="contentSelector"]').val(),
         };
-        var url = "https://1-dot-asmt1708m-sidd00474.appspot.com/admin/special-content";
+        var url = "https://1-dot-asmt1708m-dds93.appspot.com/admin/special-content";
         $.ajax({
             "url":url,
             "method": "POST",
@@ -113,7 +113,7 @@
             "description":$('#article-description').text(),
             "content":$('#article-content').html(),
         };
-        var url = "https://1-dot-asmt1708m-sidd00474.appspot.com/admin/save-special-content";
+        var url = "https://1-dot-asmt1708m-dds93.appspot.com/admin/save-special-content";
         $.ajax({
             "url":url,
             "method":"POST",

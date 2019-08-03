@@ -21,6 +21,10 @@
             border-radius: 17px;
             object-fit: cover
         }
+        #home a:hover{
+            background-color: aqua;
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -29,7 +33,7 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-md-9 well" style="height: 1140px">
+        <div class="col-md-9 well" style="height: 1150px">
 
             <div class="row">
                 <%
@@ -129,7 +133,7 @@
 
         </div>
 
-        <div class="col-md-3 well" align="center" style="height: 1140px">
+        <div class="col-md-3 well" align="center" style="height: 1150px">
             <p style="margin-top: 545px">chỗ này là right content(quảng cáo....)</p>
         </div>
     </div>

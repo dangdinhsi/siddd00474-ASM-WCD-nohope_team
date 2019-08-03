@@ -9,6 +9,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     List<Article> list = (List<Article>) request.getAttribute("list");
+    int currentPage = (int) request.getAttribute("currentPage");
+    int currentLimit = (int) request.getAttribute("currentLimit");
+    int totalPage = (int) request.getAttribute("totalPage");
 %>
 <html>
 <head>
@@ -31,7 +34,7 @@
             if (del==true){
                 alert ("Xóa thành công!!");
             }else{
-                alert("Chưa xóa!!");
+                alert("Bạn chắc chắn muốn thoát?");
             }
             return del;
         }
@@ -42,7 +45,8 @@
     <div class="row">
         <h2 class="text-center text-success">Admin list artile CRUD</h2>
         <h4 class="text-primary text-center"><i>Chức năng thêm,xóa,sửa article </i></h4>
-        <div align="center" style="margin-bottom: 20px"><button type="button" onclick="window.location='/home'">Back to home</button></div>
+        <div align="center" style="margin-bottom: 5px"><button type="button" onclick="window.location='/home'">Back to home</button></div>
+        <div align="center" style="margin-bottom: 20px"><button type="button" onclick="window.location='/admin/addcrawler'">Add Crawler</button></div>
         <table class="table-bordered text-center" align="center" style="margin-bottom: 30px;background-color: azure;padding: 10px">
            <thead>
            <tr>
@@ -94,6 +98,74 @@
             %>
             </tbody>
         </table>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <ul>
+                <%
+                    if (currentPage > 1){
+                %>
+                <a href="/admin/list?page=1&limit=<%=currentLimit%>"><<</a>
+                <%
+                    }
+                %>
+                <%
+                    if (currentPage > 1){
+                %>
+                <a href="/admin/list?page=<%=currentPage-1%>&limit=<%=currentLimit%>"><</a>
+                <%
+                    }
+                %>
+
+                <%
+                    if (currentPage - 2 > 1){
+                %>
+                <a href="/admin/list?page=<%=currentPage-2%>&limit=<%=currentLimit%>"><%=currentPage - 2%></a>
+                <%
+                    }
+                %>
+                <%
+                    if (currentPage - 1 > 1){
+                %>
+                <a href="/admin/list?page=<%=currentPage-1%>&limit=<%=currentLimit%>"><%=currentPage - 1%></a>&nbsp;
+                <%
+                    }
+                %>
+
+                <a href="#"><%=currentPage%></a>
+
+                <%
+                    if (currentPage + 1 < totalPage){
+                %>
+                <a href="/admin/list?page=<%=currentPage+1%>&limit=<%=currentLimit%>"><%=currentPage + 1%></a>&nbsp;
+                <%
+                    }
+                %>
+
+                <%
+                    if (currentPage + 2 < totalPage){
+                %>
+                <a href="/admin/list?page=<%=currentPage+2%>&limit=<%=currentLimit%>"><%=currentPage + 2%></a>&nbsp;
+                <%
+                    }
+                %>
+
+                <%
+                    if (currentPage < totalPage){
+                %>
+                <a href="/admin/list?page=<%=currentPage + 1%>&limit=<%=currentLimit%>">></a>&nbsp;
+                <%
+                    }
+                %>
+                <%
+                    if (currentPage < totalPage){
+                %>
+                <a href="/admin/list?page=<%=totalPage%>&limit=<%=currentLimit%>">>></a>
+                <%
+                    }
+                %>
+            </ul>
+        </div>
     </div>
 </div>
 </body>
